@@ -1,0 +1,6 @@
+Django install.ipynb
+venv
+jupyter
+.ipynb_checkpoints
+media
+users

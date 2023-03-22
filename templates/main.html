@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block contend %}
+<div class="container-fluid ">
+  <h2>{{title}}</h2>
+  <p>{{desc}}</p>
+  <table class="table text-primary" >
+    <thead>
+      <tr>
+        <th>Название категория</th>
+        <th>Родитель</th>
+      </tr>
+    </thead>
+{% for i in queryset%}
+    <tbody>
+      <tr>
+          <td>{{i.title}}</td>
+          <td>{{i.parent}}</td>
+      </tr>
+    </tbody>
+{% endfor %}
+  </table>
+</div>
+
+{% endblock %}
