@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block contend %}
+  <h2>Загрузка файлов</h2>
+  <form method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить</button>
+  </form>
+{% endblock %}

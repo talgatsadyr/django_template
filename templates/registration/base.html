@@ -1,0 +1,10 @@
+ <nav>
+        <ul>
+            <li><a href="{% url 'user_login' %}">Вход</a></li>
+            <li><a href="{% url 'register' %}">Регистрация</a></li>
+        </ul>
+ </nav>
+ {% block contend %}
+
+{% include 'registration/login.html' %}
+{% endblock %}

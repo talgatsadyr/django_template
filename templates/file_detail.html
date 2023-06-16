@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block contend %}
+<div>
+  <h1>{{file.title}}</h1>
+  <h2>{{ file.category }}</h2>
+  <img src="{{ file.cover.url }}" alt="Snow" style="width:200px;">
+    <p>{{ file.description }}</p>
+  <p>{{ file.created_at }}</p>
+  <p>{{ file.file }}</p>
+  {% if owner %}
+ <form action="http://localhost:8000/files/file_delete/{{file.pk}}" method="POST">
+  {% csrf_token %}
+  <button type="submit">Удалить</button>
+</form>
+  {% else %}
+  <a href="{{file.url}}" download class="btn btn-primary" >Скачать</a>
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+{% block contend %}
+  <h2>Вход пользователя</h2>
+  <form method="POST" action="">
+    <div class="form-group">
+    {% csrf_token %}
+    {{ form.as_p }}
+      </div>
+    <button type="submit">Войти</button>
+  </form>
+<p>Еще не зарегистрированы? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+<p>Забыли пароль? <a href="{% url 'password_reset' %}">Восстановить пароль</a></p>
+{% endblock %}
+</body>
+</html>

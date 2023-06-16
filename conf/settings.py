@@ -18,6 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '192.168.1.255',
 ]
 
 # Application definition
@@ -29,13 +30,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
     'mptt',
     'pdf_files',
     'bootstrap5',
     'django_extensions',
+    'users',
 
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -115,10 +118,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    str(BASE_DIR / 'static')
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = '/media/'
 
 LOGOUT_REDIRECT_URL = "login"
@@ -133,8 +136,12 @@ except ImportError:
 NOTEBOOK_ARGUMENTS = [
     '--ip', '0.0.0.0',
     '--port', '8888',
-    '--notebook-dir', 'jupyter',
+    '--notebook-dir', '',
     '--NotebookApp.default_url', notebook_default_url,
 ]
 
 IPYTHON_KERNEL_DISPLAY_NAME = 'Django Kernel'
+
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
+

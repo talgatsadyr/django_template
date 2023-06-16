@@ -2,31 +2,19 @@
 
 {% block contend %}
 <form type="get" action="" >
-    <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+    <input  id="search_box" type="text" name="search_box"  placeholder="Поиск..." >
     <button id="search_submit" type="submit" >Поиск</button>
 </form>
 <div class="container-fluid ">
-  <h2>{{title}}</h2>
-  <table class="table text-primary" >
-    <thead>
-      <tr>
-        <th>Название файла</th>
-        <th>Название категорий</th>
-          <th>Время загрузки файла</th>
-          <th>Файл</th>
-      </tr>
-    </thead>
-{% for i in queryset%}
-    <tbody>
-      <tr>
-          <td>{{i.title}}</td>
-          <td>{{i.category}}</td>
-          <td>{{i.date}}</td>
-          <td><a href="{{i.file.url}}" download class="btn btn-primary" >Скачать</a></td>
-      </tr>
-    </tbody>
+{%for i in queryset%}
+    <div class="col-md-3">
+        <a href="http://localhost:8000/files/file/{{i.pk}}">
+            <img src="{{i.cover.url}}" alt="" width="200px" height="200px">
+            <p>{{i.title}}</p>
+            <p>{{i.category}}</p>
+        </a>
+    </div>
 {% endfor %}
-  </table>
 </div>
 
 {% endblock %}
