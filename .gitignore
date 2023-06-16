@@ -3,5 +3,4 @@ venv
 jupyter
 .ipynb_checkpoints
 media
-users
 jupyter.ipynb
